@@ -4,10 +4,59 @@
   box-sizing: border-box;
 }
 
+:root {
+  --silver: #ebebeb;
+  --silver-shade: #c0c0c0;
+  --text-color: #444;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  color: var(--text-color);
   font: 1.6rem/1.6 sans-serif;
+  margin: 0;
+}
+
+/** General heading styles.
+    Responsible mostly for non-layout styles like line-height.
+*/
+
+.heading {
+  line-height: 1.2;
+}
+
+/** The page's welcome section.
+
+    1. 100vh height as specified by the project requirements.
+    2. Set the section's main content area by setting gutters.
+*/
+
+.welcome-section {
+  --gutter-width: minmax(5rem, 1fr); /* 2 */
+  align-items: center;
+  background: linear-gradient(
+    to bottom right,
+    var(--silver),
+    var(--silver-shade)
+  );
+  display: grid;
+  grid-template-areas: "lgutter title rgutter"; /* 2 */
+  grid-template-columns: var(--gutter-width) auto var(--gutter-width); /* 2 */
+  height: 100vh; /* 1 */
+}
+
+.welcome-section__title {
+  font-size: 3.2rem;
+  grid-area: title;
+}
+
+/* 1. Increase font-size when viewport is wide enough (around 600px) */
+
+@media screen and (min-width: 37.5em) {
+  .welcome-section__title {
+    font-size: 4rem; /* 1 */
+  }
 }
