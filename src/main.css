@@ -117,6 +117,8 @@ body {
 */
 
 .gallery__item {
+  background-color: #fff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
   margin: 0; /* 1 */
 }
 
@@ -128,4 +130,9 @@ body {
   display: block; /* 1 */
   height: auto; /* 1 */
   max-width: 100%; /* 1 */
+}
+
+.gallery__caption {
+  padding: 2rem;
+  text-align: center;
 }
