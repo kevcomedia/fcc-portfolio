@@ -85,3 +85,47 @@ body {
     font-size: 4rem; /* 1 */
   }
 }
+
+/** Project gallery.
+
+    Example usage:
+    <div class="gallery">
+      <figure class="gallery__item">
+        <img class="gallery__thumbnail" ...>
+        <figcaption class="gallery__caption">...</figcaption>
+      </figure>
+      <figure class="gallery__item">...</figure>
+      ...
+    </div>
+
+    1. Make as many columns as possible, with around 250px as the column's
+    minimum width.
+    2. Just enough gap to limit grid to just three columns if the gallery is
+    restricted to be 1000px wide (as is the case for this page).
+*/
+
+.gallery {
+  display: grid;
+  gap: 7rem; /* 2 */
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); /* 1 */
+  justify-items: center;
+}
+
+/*
+  1. If ever .gallery__item is used on a `<figure>`, remove its default
+  margins.
+*/
+
+.gallery__item {
+  margin: 0; /* 1 */
+}
+
+/*
+  1. Standard responsive image styles.
+*/
+
+.gallery__thumbnail {
+  display: block; /* 1 */
+  height: auto; /* 1 */
+  max-width: 100%; /* 1 */
+}
