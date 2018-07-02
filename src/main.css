@@ -29,29 +29,52 @@ body {
   text-align: center;
 }
 
+/** Generic guttered container.
+    Direct children must be .container__content or they'll be placed in the
+    gutter.
+*/
+
+.container {
+  --min-gutter-width: 2rem;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--min-gutter-width), 1fr)
+    [content-start] auto
+    [content-end] minmax(var(--min-gutter-width), 1fr)
+    [full-end];
+}
+
+.container_gutter_wide {
+  --min-gutter-width: 5rem;
+}
+
+.container__content {
+  grid-column: content;
+}
+
 /** The page's welcome section.
 
     1. 100vh height as specified by the project requirements.
-    2. Set the section's main content area by setting gutters.
 */
 
 .welcome-section {
-  --gutter-width: minmax(5rem, 1fr); /* 2 */
-  align-items: center;
   background: linear-gradient(
     to bottom right,
     var(--silver),
     var(--silver-shade)
   );
-  display: grid;
-  grid-template-areas: "lgutter title rgutter"; /* 2 */
-  grid-template-columns: var(--gutter-width) auto var(--gutter-width); /* 2 */
   height: 100vh; /* 1 */
+}
+
+/** Inner welcome-section element for vertical centering. */
+
+.welcome-section__inner {
+  align-items: center;
+  display: grid;
 }
 
 .welcome-section__title {
   font-size: 3.2rem;
-  grid-area: title;
   text-align: right;
 }
 
