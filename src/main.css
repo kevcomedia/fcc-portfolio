@@ -39,7 +39,7 @@ body {
   display: grid;
   grid-template-columns:
     [full-start] minmax(var(--min-gutter-width), 1fr)
-    [content-start] auto
+    [content-start] minmax(auto, 100rem)
     [content-end] minmax(var(--min-gutter-width), 1fr)
     [full-end];
 }
