@@ -5,6 +5,7 @@
 }
 
 :root {
+  --accent-color: #ff6700;
   --silver: #ebebeb;
   --silver-shade: #c0c0c0;
   --text-color: #444;
@@ -26,31 +27,71 @@ body {
 
 .heading {
   line-height: 1.2;
+  text-align: center;
+}
+
+/** General link styles. */
+
+.link {
+  text-decoration: none;
+}
+
+.link:link,
+.link:visited {
+  color: var(--accent-color);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/** Generic guttered container.
+    Direct children must be .container__content or they'll be placed in the
+    gutter.
+*/
+
+.container {
+  --min-gutter-width: 2rem;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--min-gutter-width), 1fr)
+    [content-start] minmax(auto, 100rem)
+    [content-end] minmax(var(--min-gutter-width), 1fr)
+    [full-end];
+}
+
+.container_gutter_wide {
+  --min-gutter-width: 5rem;
+}
+
+.container__content {
+  grid-column: content;
 }
 
 /** The page's welcome section.
 
     1. 100vh height as specified by the project requirements.
-    2. Set the section's main content area by setting gutters.
 */
 
 .welcome-section {
-  --gutter-width: minmax(5rem, 1fr); /* 2 */
-  align-items: center;
   background: linear-gradient(
     to bottom right,
     var(--silver),
     var(--silver-shade)
   );
-  display: grid;
-  grid-template-areas: "lgutter title rgutter"; /* 2 */
-  grid-template-columns: var(--gutter-width) auto var(--gutter-width); /* 2 */
   height: 100vh; /* 1 */
+}
+
+/** Inner welcome-section element for vertical centering. */
+
+.welcome-section__inner {
+  align-items: center;
+  display: grid;
 }
 
 .welcome-section__title {
   font-size: 3.2rem;
-  grid-area: title;
+  text-align: right;
 }
 
 /* 1. Increase font-size when viewport is wide enough (around 600px) */
@@ -59,4 +100,55 @@ body {
   .welcome-section__title {
     font-size: 4rem; /* 1 */
   }
+}
+
+/** Project gallery.
+
+    Example usage:
+    <div class="gallery">
+      <figure class="gallery__item">
+        <img class="gallery__thumbnail" ...>
+        <figcaption class="gallery__caption">...</figcaption>
+      </figure>
+      <figure class="gallery__item">...</figure>
+      ...
+    </div>
+
+    1. Make as many columns as possible, with around 250px as the column's
+    minimum width.
+    2. Just enough gap to limit grid to just three columns if the gallery is
+    restricted to be 1000px wide (as is the case for this page).
+*/
+
+.gallery {
+  display: grid;
+  gap: 7rem; /* 2 */
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); /* 1 */
+  justify-items: center;
+}
+
+/*
+  1. If ever .gallery__item is used on a `<figure>`, remove its default
+  margins.
+*/
+
+.gallery__item {
+  background-color: #fff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
+  margin: 0; /* 1 */
+}
+
+/*
+  1. Standard responsive image styles.
+*/
+
+.gallery__thumbnail {
+  display: block; /* 1 */
+  height: auto; /* 1 */
+  max-width: 100%; /* 1 */
+}
+
+.gallery__caption {
+  padding: 2rem;
+  text-align: center;
 }
