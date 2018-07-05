@@ -194,15 +194,12 @@ body {
   1. 15rem should be a good enough flex-basis. Shorter values will cause the
   icons to not align properly (i.e., the middle icon is not centered because of
   variable text lengths).
-  2. Allow the icon to stack on top of the text.
-  3. Center the icon within horizontally.
+  2. Center the icon within horizontally.
 */
 
 .contact-icons__item {
-  align-items: center; /* 3 */
-  display: flex; /* 2 */
-  flex-direction: column; /* 2 */
   flex-basis: 15rem; /* 1 */
+  text-align: center; /* 2 */
 }
 
 /** The container for the GitHub repo link. It's simpler this way than using
