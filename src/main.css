@@ -6,7 +6,8 @@
 
 :root {
   --accent-color: #ff6700;
-  --blue-shade: #004e78;
+  --blue: #3a6ea5;
+  --blue-shade: #004e98;
   --silver: #ebebeb;
   --silver-shade: #c0c0c0;
   --text-color: #444;
@@ -66,6 +67,13 @@ body {
     [content-start] minmax(auto, 100rem)
     [content-end] minmax(var(--min-gutter-width), 1fr)
     [full-end];
+}
+
+/** Container with a blue background and silver color */
+
+.container_theme_inverse {
+  background-color: var(--blue);
+  color: var(--silver);
 }
 
 .container_gutter_wide {
