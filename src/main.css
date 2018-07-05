@@ -6,6 +6,7 @@
 
 :root {
   --accent-color: #ff6700;
+  --blue-shade: #004e78;
   --silver: #ebebeb;
   --silver-shade: #c0c0c0;
   --text-color: #444;
@@ -43,6 +44,13 @@ body {
 
 .link:hover {
   text-decoration: underline;
+}
+
+/** Inversed link colors for use on dark backgrounds. */
+
+.link_inversed:link,
+.link_inversed:visited {
+  color: var(--silver);
 }
 
 /** Generic guttered container.
@@ -151,4 +159,20 @@ body {
 .gallery__caption {
   padding: 2rem;
   text-align: center;
+}
+
+/** The container for the GitHub repo link. It's simpler this way than using
+    a .container and making a modifier for it
+
+    1. Set to flex to prevent the inner `<p>`'s margins from leaking out (and
+    therefore having that white gap between it and the browser's bottom edge.
+    Much simpler than killing the `<p>`'s margins and setting this element's
+    padding.
+    2. Substitute for `text-align: center`.
+*/
+
+.github {
+  background-color: var(--blue-shade);
+  display: flex; /* 1 */
+  justify-content: center; /* 2 */
 }
