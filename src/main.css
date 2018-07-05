@@ -202,6 +202,23 @@ body {
   text-align: center; /* 2 */
 }
 
+/** Styles for the icon itself.
+
+    1. The `em` measurement is based on how Font Awesome sets its font sizes. I
+    think the most straightforward way to modify the icon size is by using the
+    same measurement system as FA.
+*/
+
+.contact-icons__icon {
+  font-size: 3em; /* 1 */
+}
+
+@media screen and (min-width: 37.5em) {
+  .contact-icons__icon {
+    font-size: 4em; /* 1 */
+  }
+}
+
 /** The container for the GitHub repo link. It's simpler this way than using
     a .container and making a modifier for it
 
