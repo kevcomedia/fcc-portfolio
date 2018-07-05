@@ -169,6 +169,42 @@ body {
   text-align: center;
 }
 
+/** Block for contact icons.
+    Children should be .contact-icons__item. For now optimized for just three
+    icons in a row.
+
+    Example usage:
+    <div class="contact-icons">
+      <a class="contact-icons__item">
+        <span class="contact-icons__icon"></span>
+        <span class="contact-icons__text">...</span>
+      </a>
+      ...
+    </div>
+
+    1. I'd like to use `space-evenly`, but support isn't very good. Shame.
+*/
+
+.contact-icons {
+  display: flex;
+  justify-content: space-around; /* 1 */
+}
+
+/**
+  1. 15rem should be a good enough flex-basis. Shorter values will cause the
+  icons to not align properly (i.e., the middle icon is not centered because of
+  variable text lengths).
+  2. Allow the icon to stack on top of the text.
+  3. Center the icon within horizontally.
+*/
+
+.contact-icons__item {
+  align-items: center; /* 3 */
+  display: flex; /* 2 */
+  flex-direction: column; /* 2 */
+  flex-basis: 15rem; /* 1 */
+}
+
 /** The container for the GitHub repo link. It's simpler this way than using
     a .container and making a modifier for it
 
