@@ -6,7 +6,8 @@
 
 :root {
   --accent-color: #ff6700;
-  --blue-shade: #004e78;
+  --blue: #3a6ea5;
+  --blue-shade: #004e98;
   --silver: #ebebeb;
   --silver-shade: #c0c0c0;
   --text-color: #444;
@@ -66,6 +67,13 @@ body {
     [content-start] minmax(auto, 100rem)
     [content-end] minmax(var(--min-gutter-width), 1fr)
     [full-end];
+}
+
+/** Container with a blue background and silver color */
+
+.container_theme_inverse {
+  background-color: var(--blue);
+  color: var(--silver);
 }
 
 .container_gutter_wide {
@@ -159,6 +167,55 @@ body {
 .gallery__caption {
   padding: 2rem;
   text-align: center;
+}
+
+/** Block for contact icons.
+    Children should be .contact-icons__item. For now optimized for just three
+    icons in a row.
+
+    Example usage:
+    <div class="contact-icons">
+      <div class="contact-icons__item">
+        <span class="contact-icons__icon"></span>
+      </div>
+      ...
+    </div>
+
+    1. I'd like to use `space-evenly`, but support isn't very good. Shame.
+*/
+
+.contact-icons {
+  display: flex;
+  justify-content: space-around; /* 1 */
+}
+
+/**
+  1. 15rem should be a good enough flex-basis. Shorter values will cause the
+  icons to not align properly (i.e., the middle icon is not centered because of
+  variable text lengths).
+  2. Center the icon within horizontally.
+*/
+
+.contact-icons__item {
+  flex-basis: 15rem; /* 1 */
+  text-align: center; /* 2 */
+}
+
+/** Styles for the icon itself.
+
+    1. The `em` measurement is based on how Font Awesome sets its font sizes. I
+    think the most straightforward way to modify the icon size is by using the
+    same measurement system as FA.
+*/
+
+.contact-icons__icon {
+  font-size: 3em; /* 1 */
+}
+
+@media screen and (min-width: 37.5em) {
+  .contact-icons__icon {
+    font-size: 4em; /* 1 */
+  }
 }
 
 /** The container for the GitHub repo link. It's simpler this way than using
