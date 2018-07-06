@@ -54,6 +54,55 @@ body {
   color: var(--silver);
 }
 
+/** The page navbar.
+    This is a stand-alone block that shouldn't be used together with a
+    container.
+
+    Example usage:
+    <nav class="navbar">
+      <a class="navbar__brand" ...>...</a>
+      <ul class="navbar__links">
+        <li class="navbar__item"><a class="navbar__link" ...>...</a></li>
+        ...
+      </ul>
+    </nav>
+
+    1. Allow the navbar links to flow below the brand on narrow viewports.
+*/
+
+.navbar {
+  background-color: var(--blue);
+  color: var(--silver);
+  display: flex;
+  flex-flow: row wrap; /* 1 */
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+/*
+  1. Buffer between the brand and the links. This prevents them from touching
+  just before the links wrap below the brand.
+*/
+
+.navbar__brand {
+  margin-right: 5rem; /* 1 */
+}
+
+/*
+  1. Remove default list styles, if any.
+  2. Fix width to 24rem. I don't want it to expand too much or the gaps between
+  each link will be too wide. If it shrinks too much the items will touch.
+*/
+
+.navbar__links {
+  display: flex;
+  flex: 0 0 24rem; /* 2 */
+  justify-content: space-between;
+  list-style: none; /* 1 */
+  margin: 0; /* 1 */
+  padding: 0; /* 1 */
+}
+
 /** Generic guttered container.
     Direct children must be .container__content or they'll be placed in the
     gutter.
