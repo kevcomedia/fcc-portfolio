@@ -71,6 +71,7 @@ body {
 */
 
 .navbar {
+  align-items: center;
   background-color: var(--blue);
   color: var(--silver);
   display: flex;
@@ -85,7 +86,10 @@ body {
 */
 
 .navbar__brand {
+  font-size: 2.4rem;
+  font-weight: 700;
   margin-right: 5rem; /* 1 */
+  text-transform: lowercase;
 }
 
 /*
