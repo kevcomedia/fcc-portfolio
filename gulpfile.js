@@ -3,7 +3,8 @@ const browserSync = require("browser-sync");
 const cssnano = require("cssnano");
 const del = require("del");
 const gulp = require("gulp");
-const htmlmin = require('gulp-htmlmin');
+const htmlmin = require("gulp-htmlmin");
+const imagemin = require("gulp-imagemin");
 const postcss = require("gulp-postcss");
 const runSequence = require("run-sequence");
 const sourcemaps = require("gulp-sourcemaps");
@@ -16,9 +17,7 @@ gulp.task("browserSync", function() {
 gulp.task("watch", function() {
   gulp.watch(["*.html", "*.js"], { cwd: "src" }, browserSync.reload);
   gulp.watch("src/*.css", function() {
-    return gulp
-      .src("src/*.css")
-      .pipe(browserSync.reload({ stream: true }));
+    return gulp.src("src/*.css").pipe(browserSync.reload({ stream: true }));
   });
 });
 
@@ -46,11 +45,18 @@ gulp.task("css", function() {
     .pipe(gulp.dest("dist"));
 });
 
+gulp.task("images", function() {
+  return gulp
+    .src("src/**/*.png")
+    .pipe(imagemin())
+    .pipe(gulp.dest("dist"));
+});
+
 gulp.task("clean:dist", function() {
   return del.sync("dist");
 });
 
 gulp.task("build", function(callback) {
-  runSequence("clean:dist", "useref", ["html", "css"], callback);
+  runSequence("clean:dist", "useref", ["html", "css"], "images", callback);
 });
 gulp.task("default", ["browserSync", "watch"]);
