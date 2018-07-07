@@ -117,6 +117,9 @@ body {
 /** Generic guttered container.
     Direct children must be .container__content or they'll be placed in the
     gutter.
+
+    1. Vertical padding so the navbar doesn't obscure the container's contents
+    when the container is navigated to.
 */
 
 .container {
@@ -127,6 +130,7 @@ body {
     [content-start] minmax(auto, 100rem)
     [content-end] minmax(var(--min-gutter-width), 1fr)
     [full-end];
+  padding: 11rem 0; /* 1 */
 }
 
 /** Container with a blue background and silver color */
@@ -136,12 +140,20 @@ body {
   color: var(--silver);
 }
 
-.container_gutter_wide {
-  --min-gutter-width: 5rem;
+.container__content,
+.container__heading {
+  grid-column: content;
 }
 
-.container__content {
-  grid-column: content;
+/*
+  1. Remove default top margin (there's already a lot of space above because of
+  the container padding.
+  2. Extra space between heading and content below.
+*/
+
+.container__heading {
+  margin-bottom: 4rem; /* 2 */
+  margin-top: 0; /* 1 */
 }
 
 /** The page's welcome section.
@@ -278,7 +290,7 @@ body {
 
 @media screen and (min-width: 37.5em) {
   .contact-icons__icon {
-    font-size: 4em; /* 1 */
+    font-size: 5em; /* 1 */
   }
 }
 
