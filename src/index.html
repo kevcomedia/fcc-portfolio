@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>freeCodeCamp Project - Personal Portfolio</title>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- build:css main.min.css -->
+  <link rel="stylesheet" href="main.css">
+  <!-- endbuild -->
+</head>
+
+<body>
+  <!-- The navbar id is a project requirement. -->
+  <nav class="navbar" id="navbar">
+    <a class="navbar__brand link link_inversed" href="#">Portfolio</a>
+    <ul class="navbar__links">
+      <li class="navbar__item"><a href="#welcome-section" class="navbar__link link link_inversed">Home</a></li>
+      <li class="navbar__item"><a href="#projects" class="navbar__link link link_inversed">Projects</a></li>
+      <li class="navbar__item"><a href="#contact" class="navbar__link link link_inversed">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="container welcome-section" id="welcome-section">
+    <div class="welcome-section__inner container__content">
+      <h1 class="welcome-section__title heading">freeCodeCamp Portfolio</h1>
+    </div>
+  </section>
+
+  <section class="container" id="projects">
+    <h2 class="heading container__heading">Projects</h2>
+
+    <div class="gallery container__content">
+      <a class="link" href="https://gckev-fcc-tribute-page.surge.sh" target="_blank">
+        <figure class="gallery__item project-tile">
+          <img src="tribute-page.png" alt="Tribute page thumbnail" class="gallery__thumbnail">
+          <figcaption class="gallery__caption">Tribute Page</figcaption>
+        </figure>
+      </a>
+
+      <a class="link" href="https://gckev-fcc-survey-form.surge.sh" target="_blank">
+        <figure class="gallery__item project-tile">
+          <img src="survey-form.png" alt="Survey form thumbnail" class="gallery__thumbnail">
+          <figcaption class="gallery__caption">Survey Form</figcaption>
+        </figure>
+      </a>
+
+      <a class="link" href="https://gckev-fcc-product-landing-page.surge.sh" target="_blank">
+        <figure class="gallery__item project-tile">
+          <img src="landing-page.png" alt="Product landing page thumbnail" class="gallery__thumbnail">
+          <figcaption class="gallery__caption">Product Landing Page</figcaption>
+        </figure>
+      </a>
+
+      <a class="link" href="https://gckev-fcc-technical-docs.surge.sh" target="_blank">
+        <figure class="gallery__item project-tile">
+          <img src="tech-docs.png" alt="Technical documentation page thumbnail" class="gallery__thumbnail">
+          <figcaption class="gallery__caption">Technical Documentation</figcaption>
+        </figure>
+      </a>
+    </div>
+  </section>
+
+  <section class="container container_theme_inverse" id="contact">
+    <h2 class="heading container__heading">Contact</h2>
+
+    <div class="contact-icons container__content">
+      <div class="contact-icons__item">
+        <!-- The profile-link id is a project requirement. -->
+        <a class="link link_inversed" id="profile-link" href="https://github.com/kevcomedia" target="_blank">
+          <span class="contact-icons__icon fa fa-fw fa-github" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="contact-icons__item">
+        <a class="link link_inversed" href="https://codepen.io/graycoatkev" target="_blank">
+          <span class="contact-icons__icon fa fa-fw fa-codepen" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="contact-icons__item">
+        <a class="link link_inversed" href="https://www.freecodecamp.org/kevcomedia" target="_blank">
+          <span class="contact-icons__icon fa fa-fw fa-free-code-camp" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="github">
+    <p><small><a class="link link_inversed" href="https://github.com/kevcomedia/fcc-portfolio" target="_blank">Source on GitHub</a></small></p>
+  </footer>
+
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
