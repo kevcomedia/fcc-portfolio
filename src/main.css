@@ -206,12 +206,15 @@ body {
 /*
   1. If ever .gallery__item is used on a `<figure>`, remove its default
   margins.
+  2. Prevent thumbnail box shadow from leaking out.
 */
 
 .gallery__item {
   background-color: #fff;
+  border-radius: .4rem;
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
   margin: 0; /* 1 */
+  overflow: hidden; /* 2 */
 }
 
 /*
@@ -219,6 +222,7 @@ body {
 */
 
 .gallery__thumbnail {
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
   display: block; /* 1 */
   height: auto; /* 1 */
   max-width: 100%; /* 1 */
