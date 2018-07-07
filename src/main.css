@@ -68,6 +68,7 @@ body {
     </nav>
 
     1. Allow the navbar links to flow below the brand on narrow viewports.
+    2. Fixed on top as per project requirements.
 */
 
 .navbar {
@@ -78,6 +79,9 @@ body {
   flex-flow: row wrap; /* 1 */
   justify-content: space-between;
   padding: 1rem 4rem;
+  position: fixed; /* 2 */
+  top: 0; /* 2 */
+  width: 100%; /* 2 */
 }
 
 /*
