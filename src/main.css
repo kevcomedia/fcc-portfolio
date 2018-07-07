@@ -136,10 +136,6 @@ body {
   color: var(--silver);
 }
 
-.container_gutter_wide {
-  --min-gutter-width: 5rem;
-}
-
 .container__content {
   grid-column: content;
 }
